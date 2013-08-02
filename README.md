@@ -1,7 +1,7 @@
 networkx_addon
 ==============
 
-# Some add-on modules to networkx library
+### Some add-on modules to networkx library
 
 1. Information propagation models
   (1) independent cascade model
@@ -10,6 +10,6 @@ networkx_addon
 2. Vertex similarity measures
   (1) ASCOS
 
-# TODO
+### TODO
 
 1. add some more vertex similarity functions
