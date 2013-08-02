@@ -53,8 +53,10 @@ def ascos(G, c=0.9, max_iter=100, remove_neighbors=False, remove_self=False, dum
 
   References
   ----------
-  [1]
+  [1] ASCOS: an Asymmetric network Structure COntext Similarity measure.
+  Hung-Hsuan Chen and C. Lee Giles.  ASONAM 2013
   """
+
   if type(G) == nx.MultiGraph or type(G) == nx.MultiDiGraph:
     raise Exception("ascos() not defined for graphs with multiedges.")
 
