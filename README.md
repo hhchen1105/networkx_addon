@@ -10,6 +10,7 @@ networkx_addon
 2. Vertex similarity measures
   (1) ASCOS
   (2) Jaccard
+  (2) Cosine
 
 ### TODO
 
