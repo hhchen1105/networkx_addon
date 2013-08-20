@@ -7,6 +7,7 @@ Implement SimRank similarity
 #    BSD license.
 #    NetworkX:http://networkx.lanl.gov/.
 import copy
+import sys
 import networkx as nx
 from collections import defaultdict
 __author__ = """Hung-Hsuan Chen (hhchen@psu.edu)"""
@@ -74,7 +75,7 @@ def simrank(G, c=0.9, max_iter=100, remove_neighbors=False, remove_self=False, d
     sim_old = copy.deepcopy(sim)
     for i, u in enumerate(G.nodes()):
       if dump_process:
-        print iter_ctr, ':', i, '/', G.number_of_nodes()
+        sys.stdout.write("\r%d : % d / %d" % (iter_ctr, i, G.number_of_nodes()))
       for v in G.nodes():
         if u == v:
           continue
@@ -84,6 +85,7 @@ def simrank(G, c=0.9, max_iter=100, remove_neighbors=False, remove_self=False, d
             s_uv += sim_old[n_u][n_v]
         sim[u][v] = (c * s_uv / (len(G.neighbors(u)) * len(G.neighbors(v)))) \
             if len(G.neighbors(u)) * len(G.neighbors(v)) > 0 else 0
+    print ''
 
   if remove_self:
     for m in G.nodes():
