@@ -12,6 +12,7 @@ networkx_addon
   (2) Jaccard
   (3) Cosine
   (4) SimRank
+  (5) RSS (r=2)
 
 ### TODO
 
