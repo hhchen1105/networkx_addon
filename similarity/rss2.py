@@ -10,7 +10,7 @@ import networkx as nx
 __author__ = """Hung-Hsuan Chen (hhchen@psu.edu)"""
 __all__ = ['rss2']
 
-def rss2(G, remove_neighbors=True, dump_process=False, disregard_weight=False):
+def rss2(G, remove_neighbors=False, dump_process=False, disregard_weight=False):
   """Return the rss2 similarity between nodes
 
   Parameters
@@ -21,6 +21,8 @@ def rss2(G, remove_neighbors=True, dump_process=False, disregard_weight=False):
     if true, only return rss2 similarity of non-neighbor nodes
   dump_process: boolean
     if true, the calculation process is dumped
+  disregard_weight: boolean
+    if true, the edge weight is ignored
 
   Returns
   -------
