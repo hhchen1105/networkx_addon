@@ -58,29 +58,45 @@ class TestAscos():
     G.add_edge('a', 'b', weight=1)
     G.add_edge('b', 'c', weight=1)
     node_ids, sim = ascos(G, is_weighted=True)
-    print node_ids
     sim_ans = numpy.matrix((
         '1 0.1931 .5689;'
         '0.1931 1 0.5689;'
         '0.3394 0.3394 1'))
     for i in range(sim.shape[0]):
       for j in range(sim.shape[1]):
-        print i, ',', j
         nt.assert_almost_equal(sim[i, j], sim_ans[i, j], 4)
 
     G = networkx.Graph()
     G.add_edge('a', 'b', weight=1)
     G.add_edge('b', 'c', weight=10)
     node_ids, sim = ascos(G, is_weighted=True)
-    print node_ids
     sim_ans = numpy.matrix((
         '1 0.4796 0.5689;'
         '0.1762 1 0.9000;'
         '0.1959 0.8429 1'))
     for i in range(sim.shape[0]):
       for j in range(sim.shape[1]):
-        print i, ',', j
         nt.assert_almost_equal(sim[i, j], sim_ans[i, j], 4)
 
+    G = networkx.Graph()
+    G.add_edge(1,2)
+    G.add_edge(1,4, weight=2)
+    G.add_edge(1,5)
+    G.add_edge(1,6)
+    G.add_edge(2,3)
+
+    node_ids, sim = ascos(G, is_weighted=True)
+    nt.assert_equal(len(node_ids), 6)
+    nt.assert_equal(sim.shape, (6, 6))
+    sim_ans = numpy.matrix((
+        '1      0.1810 0.0543 0.3742 0.1738 0.1738;'
+        '0.3394 1      0.2999 0.1270 0.0590 0.0590;'
+        '0.1931 0.5689 1      0.0722 0.0335 0.0335;'
+        '0.7782 0.1409 0.0422 1      0.1353 0.1353;'
+        '0.5689 0.1030 0.0308 0.2129 1      0.0989;'
+        '0.5689 0.1030 0.0308 0.2129 0.0989 1'))
+    for i in range(sim.shape[0]):
+      for j in range(sim.shape[1]):
+        nt.assert_almost_equal(sim[i,j], sim_ans[i,j], 4)
 
 
