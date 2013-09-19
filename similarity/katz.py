@@ -47,7 +47,9 @@ def katz(G, c=0.9, remove_neighbors=True, dump_process=False):
     raise Exception("katz() not defined for directed graphs.")
 
   A = nx.adjacency_matrix(G)
+  w, v = numpy.linalg.eigh(A)
+  lambda1 = max([abs(x) for x in w])
   I = numpy.eye(A.shape[0])
-  return numpy.linalg.pinv(I - c * A) - I
-
+  S = numpy.linalg.pinv(I - c/lambda1 * A)
+  return S
 
