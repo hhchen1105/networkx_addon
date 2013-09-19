@@ -12,7 +12,8 @@ import numpy
 __author__ = """Hung-Hsuan Chen (hhchen@psu.edu)"""
 __all__ = ['katz']
 
-def katz(G, c=0.9, remove_neighbors=True, dump_process=False):
+def katz(G, c=0.9, remove_neighbors=False):
+  # TODO: remove sim scores b2n neighbors when remove_neighbors==True
   """Return the katz similarity between nodes
 
   Parameters
@@ -21,8 +22,6 @@ def katz(G, c=0.9, remove_neighbors=True, dump_process=False):
     A NetworkX graph
   remove_neighbors: boolean
     if true, only return katz similarity of non-neighbor nodes
-  dump_process: boolean
-    if true, the calculation process is dumped
 
   Returns
   -------
