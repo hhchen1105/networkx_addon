@@ -26,6 +26,7 @@ def katz(G, c=0.9, remove_neighbors=False):
   Returns
   -------
   katz: matrix of similarity
+  nodelist: the node ids
 
   Examples
   --------
@@ -45,10 +46,10 @@ def katz(G, c=0.9, remove_neighbors=False):
   if G.is_directed():
     raise Exception("katz() not defined for directed graphs.")
 
-  A = nx.adjacency_matrix(G)
+  A = nx.adjacency_matrix(G, nodelist=G.nodes())
   w, v = numpy.linalg.eigh(A)
   lambda1 = max([abs(x) for x in w])
   I = numpy.eye(A.shape[0])
   S = numpy.linalg.pinv(I - c/lambda1 * A)
-  return S
+  return S, G.nodes()
 

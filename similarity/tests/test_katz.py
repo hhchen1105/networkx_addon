@@ -24,7 +24,10 @@ class TestKatzSim:
 
   def test_katz_sim(self):
     G = self.G
-    katz_sim = katz(G)
+    katz_sim, nodelist = katz(G)
+    nt.assert_equal(len(nodelist), 6)
+    for i in range(6):
+      nt.assert_true(i in nodelist)
     nt.assert_equal(len(katz_sim), 6)
     for i in range(self.G.katz_sim.shape[0]):
       for j in range(self.G.katz_sim.shape[1]):
