@@ -8,11 +8,12 @@ Implement katz similarity
 #    NetworkX:http://networkx.lanl.gov/.
 import networkx as nx
 import numpy
+import scipy.linalg
 
 __author__ = """Hung-Hsuan Chen (hhchen@psu.edu)"""
 __all__ = ['katz']
 
-def katz(G, c=0.9, remove_neighbors=False):
+def katz(G, c=0.9, remove_neighbors=False, inv_method=0):
   # TODO: remove sim scores b2n neighbors when remove_neighbors==True
   """Return the katz similarity between nodes
 
@@ -50,6 +51,12 @@ def katz(G, c=0.9, remove_neighbors=False):
   w, v = numpy.linalg.eigh(A)
   lambda1 = max([abs(x) for x in w])
   I = numpy.eye(A.shape[0])
-  S = numpy.linalg.pinv(I - c/lambda1 * A)
+  S = None
+  if inv_method == 1:
+    S = scipy.linalg.pinv(I - c/lambda1 * A)
+  elif inv_method == 2:
+    S = numpy.linalg.inv(I - c/lambda1 * A)
+  else:
+    S = numpy.linalg.pinv(I - c/lambda1 * A)
   return S, G.nodes()
 
