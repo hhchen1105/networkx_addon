@@ -85,7 +85,8 @@ def simrank(G, c=0.9, max_iter=100, remove_neighbors=False, remove_self=False, d
             s_uv += sim_old[n_u][n_v]
         sim[u][v] = (c * s_uv / (len(G.neighbors(u)) * len(G.neighbors(v)))) \
             if len(G.neighbors(u)) * len(G.neighbors(v)) > 0 else 0
-    print ''
+    if dump_process:
+      print ''
 
   if remove_self:
     for m in G.nodes():
