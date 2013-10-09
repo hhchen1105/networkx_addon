@@ -47,7 +47,7 @@ def lhn(G, c=0.9, remove_neighbors=False, inv_method=0):
   if G.is_directed():
     raise Exception("lhn() not defined for directed graphs.")
 
-  A = nx.adjacency_matrix(G, nodelist=G.nodes())
+  A = nx.adjacency_matrix(G, nodelist=G.nodes(), weight=None)
   w, v = numpy.linalg.eigh(A)
   lambda1 = max([abs(x) for x in w])
   I = numpy.eye(A.shape[0])
