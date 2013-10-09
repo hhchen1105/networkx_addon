@@ -14,7 +14,11 @@ networkx_addon
   (4) SimRank
   (5) RSS (r=2)
   (6) Katz
+  (7) LHN
 
 ### TODO
 
-1. add some more vertex similarity functions (e.g., LHN)
+1. Add some more vertex similarity functions
+
+2. Add references to these similarity measures
+
