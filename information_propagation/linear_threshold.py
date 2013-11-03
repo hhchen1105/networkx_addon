@@ -52,8 +52,8 @@ def linear_threshold(G, seeds, steps=0):
   --------
   >>> DG = nx.DiGraph()
   >>> DG.add_edges_from([(1,2), (1,3), (1,5), (2,1), (3,2), (4,2), (4,3), \
-  >>>   (4,6), (5,3), (5,4), (5,6), (6,4), (6,5)], act_prob=0.2)
-  >>> layers = information_propagation.linear_threshold(DG, [1])
+  >>>   (4,6), (5,3), (5,4), (5,6), (6,4), (6,5)])
+  >>> layers = networkx_addon.information_propagation.linear_threshold(DG, [1])
 
   """
   if type(G) == nx.MultiGraph or type(G) == nx.MultiDiGraph:

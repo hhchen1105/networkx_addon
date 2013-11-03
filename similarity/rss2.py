@@ -33,8 +33,8 @@ def rss2(G, remove_neighbors=False, dump_process=False, disregard_weight=False):
   Examples
   --------
   >>> G=nx.Graph()
-  >>> G.add_edges_from([(0,7), (0,1), (0,2), (0,3), (1,4), (2,4), (3,4), (4,5), (4,6)])
-  >>> nx.rss2(G)
+  >>> G.add_edges_from([(0,7), (0,1), (0,2), (0,3), (1,4), (2,4), (3,4), (4,5), (4,6)], weight=1)
+  >>> networkx_addon.similarity.rss2(G)
 
   Notes
   -----

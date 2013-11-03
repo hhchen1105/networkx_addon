@@ -43,7 +43,7 @@ def simrank(G, c=0.9, max_iter=100, remove_neighbors=False, remove_self=False, d
   --------
   >>> G=nx.Graph()
   >>> G.add_edges_from([(0,7), (0,1), (0,2), (0,3), (1,4), (2,4), (3,4), (4,5), (4,6)])
-  >>> nx.simrank(G)
+  >>> networkx_addon.similarity.simrank(G)
 
   Notes
   -----

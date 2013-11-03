@@ -33,7 +33,7 @@ def lhn(G, c=0.9, remove_neighbors=False, inv_method=0):
   --------
   >>> G=nx.Graph()
   >>> G.add_edges_from([(0,7), (0,1), (0,2), (0,3), (1,4), (2,4), (3,4), (4,5), (4,6)])
-  >>> nx.lhn(G)
+  >>> networkx_addon.similarity.lhn(G)
 
   Notes
   -----
