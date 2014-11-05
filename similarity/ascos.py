@@ -95,8 +95,7 @@ def ascos(G, c=0.9, max_iter=100, is_weighted=False, remove_neighbors=False, rem
           s_ij = 0.0
           for n_i in nbs[i]:
             s_ij += sim_old[n_i, j]
-          sim[i, j] = c * s_ij / len(nbs[i]) \
-              if len(nbs[i]) > 0 else 0
+          sim[i, j] = c * s_ij / len(nbs[i]) if len(nbs[i]) > 0 else 0
         else:
           if i == j:
             continue
