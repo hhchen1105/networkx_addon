@@ -88,6 +88,8 @@ def ascos(G, c=0.9, max_iter=100, is_weighted=False, remove_neighbors=False, rem
     for i in range(n):
       if dump_process:
         print iter_ctr, ':', i, '/', n
+      if is_weighted:
+        w_i = G.degree(weight='weight')[node_ids[i]]
       for j in range(n):
         if not is_weighted:
           if i == j:
@@ -104,7 +106,6 @@ def ascos(G, c=0.9, max_iter=100, is_weighted=False, remove_neighbors=False, rem
             w_ik = G[node_ids[i]][node_ids[n_i]]['weight'] if 'weight' in G[node_ids[i]][node_ids[n_i]] else 1
             s_ij += float(w_ik) * (1 - math.exp(-w_ik)) * sim_old[n_i, j]
 
-          w_i = G.degree(weight='weight')[node_ids[i]]
           sim[i, j] = c * s_ij / w_i if w_i > 0 else 0
 
   if remove_self:
