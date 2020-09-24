@@ -33,7 +33,7 @@ class TestDiffusionLinearThreshold():
 
     layers = linear_threshold(G, [1])
 
-    print layers
+    print(layers)
 
     assert_equal(len(layers[0]), 1)
     assert(1 in layers[0])

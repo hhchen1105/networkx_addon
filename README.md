@@ -1,6 +1,11 @@
 networkx_addon
 ==============
 
+***CAUTION***
+This project was developed in 2013, when Python 2.x and networkx 1.x were still popular.
+
+If you want to use this library on later Python (e.g., Python 3.x) and later networkx (e.g., networkx 2.x), you'll need to modify the code.
+
 ### Some add-on modules to networkx library
 
 1. Information propagation models
