@@ -51,7 +51,7 @@ def jaccard(G, remove_neighbors=False, dump_process=False):
   total_iter = G.number_of_nodes()
   for i, a in enumerate(G.nodes(), 1):
     if dump_process:
-      print i, '/', total_iter
+      print(i, '/', total_iter)
     for b in G.neighbors(a):
       for c in G.neighbors(b):
         if a == c:

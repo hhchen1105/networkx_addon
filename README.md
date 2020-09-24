@@ -16,9 +16,31 @@ networkx_addon
   (6) Katz
   (7) LHN
 
-### TODO
+### Dependent packages
+* numpy
+* scipy
+* networkx
 
-1. Add some more vertex similarity functions
+### How to use it
+Put the "networkx_addon/" folder inside your source directory
 
-2. Add references to these similarity measures
+### Sample usage
+
+1. network propagation
+
+>>> import networkx
+>>> import networkx_addon
+>>> G = networkx.DiGraph()
+>>> G.add_edge(1,2,act_prob=.5)
+>>> G.add_edge(2,1,act_prob=.5)
+>>> G.add_edge(1,3,act_prob=.2)
+>>> G.add_edge(3,1,act_prob=.2)
+>>> G.add_edge(2,3,act_prob=.3)
+>>> networkx_addon.information_propagation.independent_cascade(G, [1], steps=2)
+
+2. network similarity
+>>> import networkx
+>>> import networkx_addon
+>>> G = networkx.Graph()
+>>> G.add_edges_from([(0,1),(1,2),(0,2)])
 

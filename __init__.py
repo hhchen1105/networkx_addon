@@ -1,2 +1,2 @@
-import information_propagation
-import similarity
+from . import information_propagation
+from . import similarity

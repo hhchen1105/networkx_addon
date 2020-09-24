@@ -55,7 +55,7 @@ def rss2(G, remove_neighbors=False, dump_process=False, disregard_weight=False):
   for a in G.nodes():
     if dump_process:
       cur_iter += 1
-      print cur_iter, '/', total_iter
+      print(cur_iter, '/', total_iter)
     for b in G.neighbors(a):
       for c in G.neighbors(b):
         if a == c:
