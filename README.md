@@ -33,6 +33,7 @@ Put the "networkx_addon/" folder inside your source directory
 
 1. network propagation
 
+```Python
 >>> import networkx
 >>> import networkx_addon
 >>> G = networkx.DiGraph()
@@ -42,10 +43,13 @@ Put the "networkx_addon/" folder inside your source directory
 >>> G.add_edge(3,1,act_prob=.2)
 >>> G.add_edge(2,3,act_prob=.3)
 >>> networkx_addon.information_propagation.independent_cascade(G, [1], steps=2)
+```
 
 2. network similarity
+
+```Python
 >>> import networkx
 >>> import networkx_addon
 >>> G = networkx.Graph()
 >>> G.add_edges_from([(0,1),(1,2),(0,2)])
-
+```
